@@ -1,35 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Acces Form </title>
-  <style>
-    iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-    }
-  </style>
+  <title>Google Form Redirect</title>
 </head>
 <body>
 
-  <h2>Fill out the form below:</h2>
-  <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header"></iframe>
+  <h2>Please fill out the form:</h2>
+  <button onclick="openForm()">Open Form</button>
 
   <script>
-    const formIframe = document.getElementById('google-form');
+    function openForm() {
+      // Open Google Form in a new tab
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header', '_blank');
 
-    formIframe.onload = function () {
-      // Check if the user is on the "thank you" page
-      const formURL = formIframe.contentWindow.location.href;
-      
-      // Google's 'thank you' page contains 'formResponse' in the URL
-      if (formURL.includes('formResponse')) {
-        // Redirect to YouTube after 2 seconds
-        setTimeout(() => {
-          window.location.href = "https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi"; // Replace with your YouTube URL
-        }, 2000);
-      }
-    };
+      // Start checking every 3 seconds if the form is submitted
+      let checkInterval = setInterval(() => {
+        fetch('https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=headere')
+          .then(response => {
+            if (response.status === 200) {
+              // Form has been submitted
+              clearInterval(checkInterval);
+              window.location.href = 'https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi'; // Your YouTube link
+            }
+          })
+          .catch(err => {
+            // Ignore errors (usually CORS-related)
+          });
+      }, 3000);
+    }
   </script>
 
 </body>
