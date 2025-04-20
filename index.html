@@ -1,41 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Form Page</title>
+  <title>Acces Form </title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
     iframe {
       width: 100%;
-      height: 100vh;
+      height: 600px;
       border: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Embed your Google Form here -->
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=dialog"></iframe>
+  <h2>Fill out the form below:</h2>
+  <iframe id="google-form" src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header"></iframe>
 
   <script>
-    // Redirect to YouTube after form submission
-    const iframe = document.getElementById("googleForm");
+    const formIframe = document.getElementById('google-form');
 
-    iframe.onload = function () {
-      const currentURL = iframe.contentWindow.location.href;
-
-      // After submission, Google shows this URL pattern
-      if (currentURL.includes("formResponse")) {
-        // Redirect to your YouTube video
-        window.location.href = "https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi";
+    formIframe.onload = function () {
+      // Check if the user is on the "thank you" page
+      const formURL = formIframe.contentWindow.location.href;
+      
+      // Google's 'thank you' page contains 'formResponse' in the URL
+      if (formURL.includes('formResponse')) {
+        // Redirect to YouTube after 2 seconds
+        setTimeout(() => {
+          window.location.href = "https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi"; // Replace with your YouTube URL
+        }, 2000);
       }
     };
   </script>
 
 </body>
 </html>
-
-
