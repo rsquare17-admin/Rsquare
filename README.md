@@ -1,1 +1,1 @@
-# Rsquare
+# R Square Education
