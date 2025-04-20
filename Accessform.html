@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Access Form</title>
+</head>
+<body>
+  <h2>Please Fill Out This Form to Continue</h2>
+  <form id="userForm">
+    <label>Name:</label><br>
+    <input type="text" name="name" required><br><br>
+
+    <label>Phone Number:</label><br>
+    <input type="number" name="number" required><br><br>
+
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>School Name:</label><br>
+    <input type="text" name="school name" required><br><br>
+
+    <button type="submit">Submit & Continue</button>
+  </form>
+
+  <script>
+    document.getElementById("userForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      // Collect form data
+      const formData = new FormData(this);
+      const data = {
+        name: formData.get("name"),
+	phone number: formData.get("number"),
+        email: formData.get("email"),
+	school name: formData.get("school name")
+	
+      };
+
+      // Optionally, send data to a server or Google Sheet (AJAX / fetch here)
+
+      // Redirect to YouTube after submission
+      window.location.href = "https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi"; 
+    });
+  </script>
+</body>
+</html>
