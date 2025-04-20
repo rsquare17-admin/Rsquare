@@ -25,15 +25,6 @@
     document.getElementById("userForm").addEventListener("submit", function(e) {
       e.preventDefault();
 
-      // Collect form data
-      const formData = new FormData(this);
-      const data = {
-        name: formData.get("name"),
-	phone number: formData.get("number"),
-        email: formData.get("email"),
-	school name: formData.get("school name")
-	
-      };
 
       // Optionally, send data to a server or Google Sheet (AJAX / fetch here)
 
