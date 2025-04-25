@@ -1,20 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Access Form </title>
+  <meta charset="UTF-8">
+  <title>Kids Tech Form</title>
+  <style>
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding: 20px;
+    }
+    h2 {
+      color: #ff6347;
+    }
+    iframe {
+      border: none;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h2>Please fill out the form:</h2>
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  <h2>🚀 Welcome! Please fill out the form below:</h2>
+
+  <iframe 
+    src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?embedded=true" 
+    width="640" 
+    height="800" 
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0">
+    Loading…
+  </iframe>
 
   <script>
-    // This only works with response page if you can detect form submission
-    // So instead, use a workaround timer or form logic to redirect
-
-    // Redirect to YouTube after 10 seconds
-    setTimeout(() => {
+    // Wait 10 seconds after form page loads, then redirect
+    setTimeout(function() {
       window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";
-    }, 1000); // 10 seconds (you can adjust)
+    }, 10000); // 10000 = 10 seconds
   </script>
 </body>
 </html>
+
