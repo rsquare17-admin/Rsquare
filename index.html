@@ -1,34 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Google Form Redirect</title>
+  <title>Form + Redirect</title>
 </head>
 <body>
-
   <h2>Please fill out the form:</h2>
-  <button onclick="openForm()">Open Form</button>
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header" width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
   <script>
-    function openForm() {
-      // Open Google Form in a new tab
-      window.open('https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=header', '_blank');
+    // This only works with response page if you can detect form submission
+    // So instead, use a workaround timer or form logic to redirect
 
-      // Start checking every 3 seconds if the form is submitted
-      let checkInterval = setInterval(() => {
-        fetch('https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?usp=headere')
-          .then(response => {
-            if (response.status === 200) {
-              // Form has been submitted
-              clearInterval(checkInterval);
-              window.location.href = 'https://youtu.be/q0-2UVB8OVc?si=bXfRSNrYnl6QMfvi'; // Your YouTube link
-            }
-          })
-          .catch(err => {
-            // Ignore errors (usually CORS-related)
-          });
-      }, 3000);
-    }
+    // Redirect to YouTube after 10 seconds
+    setTimeout(() => {
+      window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";
+    }, 10000); // 10 seconds (you can adjust)
   </script>
-
 </body>
 </html>
