@@ -1,43 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Kids Tech Form</title>
-  <style>
-    body {
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background-color: #f0f8ff;
-      text-align: center;
-      padding: 20px;
-    }
-    h2 {
-      color: #ff6347;
-    }
-    iframe {
-      border: none;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Form Submission</title>
 </head>
 <body>
-  <h2>🚀 Welcome! Please fill out the form below:</h2>
+    <h2>Form Submission</h2>
+    <form id="myForm">
+        <label for="name">Name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+      
+      <label for="phonenumber">Phonenumber:</label><br>
+      <input type="number" id="number" name="phonenumber" required><br><br>
 
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLScHZWysA3U_WF-4hvzbJOYlyUBasuihcE_poa9H0oac46519Q/viewform?embedded=true" 
-    width="640" 
-    height="800" 
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0">
-    Loading…
-  </iframe>
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+      
+      <label for="school">School:</label><br>
+        <input type="text" id="school" name="school" required><br><br>
+      
+      <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" required><br><br>
 
-  <script>
-    // Wait 10 seconds after form page loads, then redirect
-    setTimeout(function() {
-      window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";
-    }, 10000); // 10000 = 10 seconds
-  </script>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // JavaScript to handle form submission and redirect
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting traditionally
+
+            // You can perform form validation here if needed
+            
+            // Redirect to YouTube after submission
+            window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";
+        });
+    </script>
 </body>
 </html>
-
