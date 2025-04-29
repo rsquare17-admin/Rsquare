@@ -1,40 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QR Form Submission</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form with Redirect</title>
 </head>
 <body>
-    <h2>Form Submission</h2>
-    <form id="myForm">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
-      
-      <label for="phonenumber">Phonenumber:</label><br>
-      <input type="number" id="number" name="phonenumber" required><br><br>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
-      
-      <label for="school">School:</label><br>
-        <input type="text" id="school" name="school" required><br><br>
-      
-      <label for="city">City:</label><br>
-        <input type="text" id="city" name="city" required><br><br>
+  <h1>Submit Form</h1>
+  
+  <!-- Form setup -->
+  <form id="myForm" action="https://getform.io/f/axowqwpb" method="POST" onsubmit="return handleFormSubmit()">
+    <!-- Form fields here -->
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
 
-        <button type="submit">Submit</button>
-    </form>
- <script>
-        // JavaScript to handle form submission and redirect
-        document.getElementById("myForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent form from submitting traditionally
+    <label for="phonenumber">Phone number:</label>
+    <input type="number" id="phonenumber" name="phonenumber" required><br><br>
+      
+    <label for="email">Your Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
 
-            // You can perform form validation here if needed
-            
-            // Redirect to YouTube after submission
-            window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";
-        });
-    </script>
+    <label for="schoolname">School Name:</label>
+    <input type="text" id="schoolname" name="schoolname" required><br><br>
+
+    <label for="city">City:</label>
+    <input type="text" id="city" name="city" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+
+  <!-- JavaScript to handle redirection after form submission -->
+  <script>
+    function handleFormSubmit() {
+      // You can include any validation or additional logic here if needed
+      
+      // Redirect to YouTube after form submission
+      setTimeout(function() {
+        window.location.href = "https://youtu.be/q0-2UVB8OVc?si=7yzltED-vt41nZrf";  // Redirect to YouTube
+      }, 2000); // Wait 2 seconds before redirecting to give user time to see the form submission
+
+      return false;  // Prevent the default form submission to allow for redirection
+    }
+  </script>
+
 </body>
 </html>
